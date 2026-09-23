@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e7">
+  <meta name="description" content="A content creation blueprint for getting the job done successfully.">
+  <title>Blue Print — Content Creation Framework</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f0e7;
+      --card: #fffdf8;
+      --ink: #17231e;
+      --muted: #68736c;
+      --line: #d9ded4;
+      --green: #245744;
+      --green-soft: #e6eee8;
+      --orange: #e6a151;
+      --shadow: 0 18px 54px rgba(31, 45, 37, .08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-width: 320px;
+      background: var(--paper);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(100% - 40px, 1120px);
+      margin-inline: auto;
+    }
+
+    .masthead {
+      padding: clamp(26px, 5vw, 56px) 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--green);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .edition {
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    main { padding: clamp(32px, 6vw, 72px) 0 70px; }
+
+    .hero {
+      max-width: 850px;
+      margin-bottom: clamp(36px, 6vw, 66px);
+    }
+
+    h1 {
+      margin: 10px 0 16px;
+      font-size: clamp(3rem, 9vw, 6.6rem);
+      line-height: .94;
+      letter-spacing: -.075em;
+      font-weight: 780;
+    }
+
+    .hero p {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: clamp(22px, 4vw, 34px);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .card.wide { grid-column: 1 / -1; }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .number {
+      display: grid;
+      place-items: center;
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      line-height: 1.2;
+      letter-spacing: -.04em;
+    }
+
+    .section-kicker {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .details {
+      display: grid;
+      gap: 0;
+      margin: 0;
+    }
+
+    .detail {
+      display: grid;
+      grid-template-columns: minmax(115px, .65fr) 1.35fr;
+      gap: 18px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    dt {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+    }
+
+    dd {
+      min-width: 0;
+      margin: 0;
+      font-weight: 570;
+      overflow-wrap: anywhere;
+    }
+
+    .gateway {
+      margin-top: 16px;
+      padding: 20px;
+      border-left: 3px solid var(--orange);
+      border-radius: 0 12px 12px 0;
+      background: #f7f1e5;
+    }
+
+    .gateway-label {
+      display: block;
+      margin-bottom: 7px;
+      color: #855621;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .gateway p {
+      margin: 0;
+      font-size: 1.04rem;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+
+    .process {
+      margin-top: 18px;
+      padding: 15px 17px;
+      border-radius: 12px;
+      background: var(--green);
+      color: white;
+    }
+
+    .process span {
+      display: block;
+      color: #c6d9ce;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .process strong {
+      display: block;
+      margin-top: 3px;
+      font-size: 1.13rem;
+      letter-spacing: .12em;
+    }
+
+    .compass-intro {
+      max-width: 600px;
+      margin: -8px 0 26px;
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      min-width: 0;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fbfaf5;
+    }
+
+    .step-letter {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      background: var(--green);
+      color: white;
+      font-size: .86rem;
+      font-weight: 800;
+    }
+
+    .step-code {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .step p {
+      margin: 0;
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 22px 0 30px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: .78rem;
+    }
+
+    @media (max-width: 720px) {
+      .sections { grid-template-columns: 1fr; }
+      .card.wide { grid-column: auto; }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 440px) {
+      .page { width: min(100% - 28px, 1120px); }
+      .masthead { align-items: flex-start; }
+      .edition {
+        max-width: 115px;
+        text-align: right;
+        line-height: 1.4;
+      }
+      .detail { grid-template-columns: 1fr; gap: 4px; }
+      .steps { grid-template-columns: 1fr; }
+      .step {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        column-gap: 10px;
+        align-items: start;
+      }
+      .step-letter { grid-row: span 2; margin: 0; }
+      .step-code { margin: 2px 0 4px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <p class="eyebrow">Content creation framework</p>
+      <span class="edition">A practical blueprint</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Starting point · Continuation · Compass</p>
+        <h1 id="page-title">Blue Print</h1>
+        <p>A repeatable way to introduce an issue, provide its solution, explain the process, and share an advanced technique.</p>
+      </section>
+
+      <div class="sections">
+        <section class="card" aria-labelledby="starting-point">
+          <div class="section-heading">
+            <span class="number" aria-hidden="true">01</span>
+            <div>
+              <h2 id="starting-point">Starting Point</h2>
+              <p class="section-kicker">The first publication</p>
+            </div>
+          </div>
+
+          <dl class="details">
+            <div class="detail"><dt>Topic</dt><dd>Issue (from issue bank)</dd></div>
+            <div class="detail"><dt>Information Format</dt><dd>PDF</dd></div>
+            <div class="detail"><dt>Platform of Publication</dt><dd>Gumroad.com</dd></div>
+          </dl>
+
+          <div class="gateway">
+            <span class="gateway-label">Gateway</span>
+            <p>Get the Job Done. You Can’t Afford to Fail. What do you need to understand to get the job done successfully?</p>
+          </div>
+
+          <div class="process">
+            <span>My Process of Content Creation</span>
+            <strong>ISPR</strong>
+          </div>
+
+          <dl class="details">
+            <div class="detail"><dt>Introduce the issue</dt><dd>issue’s content: 2S, 3P, 1A</dd></div>
+          </dl>
+        </section>
+
+        <section class="card" aria-labelledby="continuation">
+          <div class="section-heading">
+            <span class="number" aria-hidden="true">02</span>
+            <div>
+              <h2 id="continuation">Continuation</h2>
+              <p class="section-kicker">The online extension</p>
+            </div>
+          </div>
+
+          <dl class="details">
+            <div class="detail"><dt>Topic</dt><dd>Issue (from issue bank)</dd></div>
+            <div class="detail"><dt>Information Format</dt><dd>PDF / Online Text Information</dd></div>
+            <div class="detail"><dt>Platform of Publication</dt><dd>Ko-fi.com</dd></div>
+          </dl>
+
+          <div class="gateway">
+            <span class="gateway-label">Gateway</span>
+            <p>Get the Job Done. You Can’t Afford to Fail. What do you need to understand to get the job done successfully?</p>
+          </div>
+
+          <div class="process">
+            <span>My Process of Content Creation</span>
+            <strong>ISPR</strong>
+          </div>
+
+          <dl class="details">
+            <div class="detail"><dt>Introduce the issue</dt><dd>issue’s content: 2S, 3P, 1A</dd></div>
+          </dl>
+        </section>
+
+        <section class="card wide" aria-labelledby="compass">
+          <div class="section-heading">
+            <span class="number" aria-hidden="true">03</span>
+            <div>
+              <h2 id="compass">Compass</h2>
+              <p class="section-kicker">The ISPR content sequence</p>
+            </div>
+          </div>
+
+          <p class="compass-intro">Follow each stage to move from introducing the issue to sharing a more advanced technique.</p>
+
+          <div class="steps">
+            <article class="step">
+              <span class="step-letter" aria-hidden="true">I</span>
+              <span class="step-code">I [2S, 3P, 1A]</span>
+              <p>introduce the issue</p>
+            </article>
+            <article class="step">
+              <span class="step-letter" aria-hidden="true">S</span>
+              <span class="step-code">S [Gumroad (f) / Ko-fi (Pub.)]</span>
+              <p>provide the solution’s what to do, why</p>
+            </article>
+            <article class="step">
+              <span class="step-letter" aria-hidden="true">P</span>
+              <span class="step-code">P [Gumroad (p) / Ko-fi (Pvt.)]</span>
+              <p>provide the process</p>
+            </article>
+            <article class="step">
+              <span class="step-letter" aria-hidden="true">R</span>
+              <span class="step-code">R [Gumroad (p) / Ko-fi (Pvt.)]</span>
+              <p>provide advanced technique of the process</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>Copyright © <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.</footer>
+  </div>
+</body>
+</html>
